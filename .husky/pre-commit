@@ -1,0 +1,10 @@
+#!/bin/sh
+
+bunx lint-staged
+
+bun run test:affected
+
+# To test Hooks Without Committing
+# exit 1
+# $ git commit -m "testing pre-commit code"
+# A commit will not be created
