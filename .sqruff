@@ -1,0 +1,22 @@
+[sqruff]
+dialect = sqlite
+rules = all
+exclude_rules = AM01,AM02,AL07,LT01,LT02,LT05
+max_line_length = 120
+
+[sqruff:indentation]
+indent_unit = space
+tab_space_size = 4
+indented_joins = True
+
+[sqruff:rules:capitalisation.keywords]
+capitalisation_policy = upper
+
+[sqruff:rules:capitalisation.identifiers]
+capitalisation_policy = lower
+
+[sqruff:rules:structure.select_wildcard]
+allow_select_wildcard = False
+
+[sqruff:rules:aliasing.explicit]
+alias_for = both
