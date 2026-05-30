@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        /* __DARK_CSS__ */
+      }
+
+      @media (prefers-color-scheme: light) {
+        /* __LIGHT_CSS__ */
+      }
+
+      :root {
+        --bg: #ffffff;
+        --fg: #1f2328;
+        --border: #d0d7de;
+        --code-bg: #f6f8fa;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0d1117;
+          --fg: #e6edf3;
+          --border: #30363d;
+          --code-bg: #161b22;
+        }
+      }
+      body {
+        font-family: -apple-system, system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+      }
+      .markdown-body {
+        max-width: 800px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- oxfmt-ignore -->
+    <article class="markdown-body">{{content}}</article>
+  </body>
+</html>
