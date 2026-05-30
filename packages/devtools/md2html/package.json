@@ -1,0 +1,19 @@
+{
+  "name": "md2html",
+  "description": "A markdown compiler for parsing markdown to pretty html",
+  "bin": {
+    "md2html": "./dist/cli.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "bun build ./bin/cli.ts --outdir dist --target bun --loader=.css=text",
+    "prepare": "bun run build"
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1",
+    "marked": "^18.0.4",
+    "marked-alert": "^2.1.2",
+    "marked-highlight": "^2.2.4",
+    "shared": "workspace:*"
+  }
+}

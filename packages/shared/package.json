@@ -5,6 +5,7 @@
   "main": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts",
-    "./date": "./src/date.ts"
+    "./date": "./src/date.ts",
+    "./logging": "./src/logging.ts"
   }
 }
