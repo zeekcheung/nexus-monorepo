@@ -5,6 +5,8 @@ export default defineConfig({
   test: {
     // Use vites apis as globals without importing
     globals: true,
+    // Use higher timeout for e2e test
+    testTimeout: 15_000,
   },
   plugins: [
     // Register wrangler environment
