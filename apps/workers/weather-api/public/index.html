@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather API</title>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        pre code.hljs {
+          display: block;
+          overflow-x: auto;
+          padding: 1em;
+        }
+        code.hljs {
+          padding: 3px 5px;
+        }
+        /*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+        .hljs {
+          color: #c9d1d9;
+          background: #0d1117;
+        }
+        .hljs-doctag,
+        .hljs-keyword,
+        .hljs-meta .hljs-keyword,
+        .hljs-template-tag,
+        .hljs-template-variable,
+        .hljs-type,
+        .hljs-variable.language_ {
+          /* prettylights-syntax-keyword */
+          color: #ff7b72;
+        }
+        .hljs-title,
+        .hljs-title.class_,
+        .hljs-title.class_.inherited__,
+        .hljs-title.function_ {
+          /* prettylights-syntax-entity */
+          color: #d2a8ff;
+        }
+        .hljs-attr,
+        .hljs-attribute,
+        .hljs-literal,
+        .hljs-meta,
+        .hljs-number,
+        .hljs-operator,
+        .hljs-variable,
+        .hljs-selector-attr,
+        .hljs-selector-class,
+        .hljs-selector-id {
+          /* prettylights-syntax-constant */
+          color: #79c0ff;
+        }
+        .hljs-regexp,
+        .hljs-string,
+        .hljs-meta .hljs-string {
+          /* prettylights-syntax-string */
+          color: #a5d6ff;
+        }
+        .hljs-built_in,
+        .hljs-symbol {
+          /* prettylights-syntax-variable */
+          color: #ffa657;
+        }
+        .hljs-comment,
+        .hljs-code,
+        .hljs-formula {
+          /* prettylights-syntax-comment */
+          color: #8b949e;
+        }
+        .hljs-name,
+        .hljs-quote,
+        .hljs-selector-tag,
+        .hljs-selector-pseudo {
+          /* prettylights-syntax-entity-tag */
+          color: #7ee787;
+        }
+        .hljs-subst {
+          /* prettylights-syntax-storage-modifier-import */
+          color: #c9d1d9;
+        }
+        .hljs-section {
+          /* prettylights-syntax-markup-heading */
+          color: #1f6feb;
+          font-weight: bold;
+        }
+        .hljs-bullet {
+          /* prettylights-syntax-markup-list */
+          color: #f2cc60;
+        }
+        .hljs-emphasis {
+          /* prettylights-syntax-markup-italic */
+          color: #c9d1d9;
+          font-style: italic;
+        }
+        .hljs-strong {
+          /* prettylights-syntax-markup-bold */
+          color: #c9d1d9;
+          font-weight: bold;
+        }
+        .hljs-addition {
+          /* prettylights-syntax-markup-inserted */
+          color: #aff5b4;
+          background-color: #033a16;
+        }
+        .hljs-deletion {
+          /* prettylights-syntax-markup-deleted */
+          color: #ffdcd7;
+          background-color: #67060c;
+        }
+        .hljs-char.escape_,
+        .hljs-link,
+        .hljs-params,
+        .hljs-property,
+        .hljs-punctuation,
+        .hljs-tag {
+          /* purposely ignored */
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        pre code.hljs {
+          display: block;
+          overflow-x: auto;
+          padding: 1em;
+        }
+        code.hljs {
+          padding: 3px 5px;
+        }
+        /*!
+  Theme: GitHub
+  Description: Light theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-light
+  Current colors taken from GitHub's CSS
+*/
+        .hljs {
+          color: #24292e;
+          background: #ffffff;
+        }
+        .hljs-doctag,
+        .hljs-keyword,
+        .hljs-meta .hljs-keyword,
+        .hljs-template-tag,
+        .hljs-template-variable,
+        .hljs-type,
+        .hljs-variable.language_ {
+          /* prettylights-syntax-keyword */
+          color: #d73a49;
+        }
+        .hljs-title,
+        .hljs-title.class_,
+        .hljs-title.class_.inherited__,
+        .hljs-title.function_ {
+          /* prettylights-syntax-entity */
+          color: #6f42c1;
+        }
+        .hljs-attr,
+        .hljs-attribute,
+        .hljs-literal,
+        .hljs-meta,
+        .hljs-number,
+        .hljs-operator,
+        .hljs-variable,
+        .hljs-selector-attr,
+        .hljs-selector-class,
+        .hljs-selector-id {
+          /* prettylights-syntax-constant */
+          color: #005cc5;
+        }
+        .hljs-regexp,
+        .hljs-string,
+        .hljs-meta .hljs-string {
+          /* prettylights-syntax-string */
+          color: #032f62;
+        }
+        .hljs-built_in,
+        .hljs-symbol {
+          /* prettylights-syntax-variable */
+          color: #e36209;
+        }
+        .hljs-comment,
+        .hljs-code,
+        .hljs-formula {
+          /* prettylights-syntax-comment */
+          color: #6a737d;
+        }
+        .hljs-name,
+        .hljs-quote,
+        .hljs-selector-tag,
+        .hljs-selector-pseudo {
+          /* prettylights-syntax-entity-tag */
+          color: #22863a;
+        }
+        .hljs-subst {
+          /* prettylights-syntax-storage-modifier-import */
+          color: #24292e;
+        }
+        .hljs-section {
+          /* prettylights-syntax-markup-heading */
+          color: #005cc5;
+          font-weight: bold;
+        }
+        .hljs-bullet {
+          /* prettylights-syntax-markup-list */
+          color: #735c0f;
+        }
+        .hljs-emphasis {
+          /* prettylights-syntax-markup-italic */
+          color: #24292e;
+          font-style: italic;
+        }
+        .hljs-strong {
+          /* prettylights-syntax-markup-bold */
+          color: #24292e;
+          font-weight: bold;
+        }
+        .hljs-addition {
+          /* prettylights-syntax-markup-inserted */
+          color: #22863a;
+          background-color: #f0fff4;
+        }
+        .hljs-deletion {
+          /* prettylights-syntax-markup-deleted */
+          color: #b31d28;
+          background-color: #ffeef0;
+        }
+        .hljs-char.escape_,
+        .hljs-link,
+        .hljs-params,
+        .hljs-property,
+        .hljs-punctuation,
+        .hljs-tag {
+          /* purposely ignored */
+        }
+      }
+
+      :root {
+        --bg: #ffffff;
+        --fg: #1f2328;
+        --border: #d0d7de;
+        --code-bg: #f6f8fa;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0d1117;
+          --fg: #e6edf3;
+          --border: #30363d;
+          --code-bg: #161b22;
+        }
+      }
+      body {
+        font-family: -apple-system, system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+      }
+      .markdown-body {
+        max-width: 800px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- oxfmt-ignore -->
+    <article class="markdown-body">
+      <h1>Weather API</h1>
+      <p>This is a Cloudflare Worker that provides weather data.</p>
+      <h2>Usage</h2>
+      <pre><code class="hljs language-sh"><span class="hljs-comment"># Get all weather data from database</span>
+curl https://weather.zeekcheung.workers.dev/api
+curl https://weather.zeekcheung.ip-ddns.com/api
+curl https://weather.zeekcheung.asia/api
+
+<span class="hljs-comment"># Get weather data for a specific city and date</span>
+<span class="hljs-comment"># Example: Get weather data for Zhongshan (59485) on May 9, 2025 in Asia/Shanghai time zone</span>
+curl https://weather.zeekcheung.workers.dev/api?areaId=59485&amp;year=2025&amp;month=5&amp;day=9&amp;timeZone=Asia%2FShanghai
+curl https://weather.zeekcheung.ip-ddns.com/api?areaId=59485&amp;year=2025&amp;month=5&amp;day=9&amp;timeZone=Asia%2FShanghai
+curl https://weather.zeekcheung.asia/api?areaId=59485&amp;year=2025&amp;month=5&amp;day=9&amp;timeZone=Asia%2FShanghai
+</code></pre>
+      <div class="markdown-alert markdown-alert-tip">
+        <p class="markdown-alert-title">
+          <svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+            <path
+              d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"
+            ></path></svg
+          >Tip
+        </p>
+        <p>
+          You can find the <code>areaId</code> for a city via
+          <a
+            href="https://data.cma.cn/article/showPDFFile.html?file=/pic/static/doc/A/A.0012.0001/SURF_CHN_MUL_HOR_STATION.pdf"
+            >OpenWeatherMap</a
+          >.
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
