@@ -1,0 +1,124 @@
+:root {
+  font-size: 16px;
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-primary: #22c55e;
+  --color-secondary: #f87171;
+}
+
+body {
+  height: 100vh;
+  background: var(--color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+main {
+  max-width: 100%;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+.data-container {
+  display: flex;
+  align-items: center;
+}
+
+.data-item {
+  display: flex;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.data-label,
+.data-unit {
+  color: var(--color-primary);
+}
+
+.data-value {
+  color: var(--color-secondary);
+  text-align: right;
+}
+
+.data-container:last-child > .data-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.progress-container {
+  flex: 1;
+  height: 1em;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.progress-text {
+  color: var(--color-foreground);
+  font-size: 0.75em;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  main {
+    font-size: 3rem;
+  }
+  .data-value {
+    display: inline-block;
+    min-width: 5rem;
+  }
+  [data-bind="humidity"] {
+    min-width: 6rem;
+  }
+}
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  main {
+    font-size: 1.5rem;
+  }
+  .data-value {
+    display: inline-block;
+    min-width: 2.5rem;
+  }
+  [data-bind="humidity"] {
+    min-width: 3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    font-size: 6rem;
+  }
+  .data-value {
+    display: inline-block;
+    min-width: 8rem;
+  }
+  [data-bind="humidity"] {
+    min-width: 10rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  main {
+    font-size: 10rem;
+  }
+  .data-value {
+    display: inline-block;
+    min-width: 12rem;
+  }
+  [data-bind="humidity"] {
+    min-width: 18rem;
+  }
+}

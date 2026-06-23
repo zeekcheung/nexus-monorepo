@@ -1,0 +1,21 @@
+{
+  "name": "curing-monitor",
+  "type": "module",
+  "scripts": {
+    "build:docs": "md2html -i README.md -o public/index.html -t \"Curing Monitor\"",
+    "predeploy": "bun run build:docs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "catalog:",
+    "dayjs": "catalog:",
+    "hono": "catalog:",
+    "md2html": "workspace:*",
+    "shared": "workspace:*",
+    "validators": "workspace:*",
+    "weather-api": "workspace:*",
+    "zod": "catalog:"
+  }
+}

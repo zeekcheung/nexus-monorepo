@@ -18,6 +18,19 @@
         "wrangler": "^4.4.0",
       },
     },
+    "apps/workers/curing-monitor": {
+      "name": "curing-monitor",
+      "dependencies": {
+        "@hono/zod-validator": "catalog:",
+        "dayjs": "catalog:",
+        "hono": "catalog:",
+        "md2html": "workspace:*",
+        "shared": "workspace:*",
+        "validators": "workspace:*",
+        "weather-api": "workspace:*",
+        "zod": "catalog:",
+      },
+    },
     "apps/workers/weather-api": {
       "name": "weather-api",
       "dependencies": {
@@ -385,6 +398,8 @@
 
     "cookie": ["cookie@1.1.1", "https://registry.npmmirror.com/cookie/-/cookie-1.1.1.tgz", {}, "sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ=="],
 
+    "curing-monitor": ["curing-monitor@workspace:apps/workers/curing-monitor"],
+
     "dayjs": ["dayjs@1.11.21", "https://registry.npmmirror.com/dayjs/-/dayjs-1.11.21.tgz", {}, "sha512-98IT+HOahAisibz/yjKbzuOBwYcjJ7BCLPzARyHiyEBmRz4fatF+KPJszEHXsGYjUG234aH/cOjW1wwTbKUZlA=="],
 
     "detect-libc": ["detect-libc@2.1.2", "https://registry.npmmirror.com/detect-libc/-/detect-libc-2.1.2.tgz", {}, "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ=="],
@@ -413,7 +428,7 @@
 
     "highlight.js": ["highlight.js@11.11.1", "https://registry.npmmirror.com/highlight.js/-/highlight.js-11.11.1.tgz", {}, "sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w=="],
 
-    "hono": ["hono@4.12.23", "https://registry.npmmirror.com/hono/-/hono-4.12.23.tgz", {}, "sha512-eIaZ9qDgu7XV0pxOCrg7/WhnQ6Ivm22UcxhXx/A3dcbqbbYgBEkc6e/J/s7j2tS96zoB0S9VBdLwQNCWwUo4LA=="],
+    "hono": ["hono@4.12.26", "https://registry.npmmirror.com/hono/-/hono-4.12.26.tgz", {}, "sha512-uyZtpnYxM9CmQ7QsQknM4zN8EftNqhON1qYeIKM0Se67CCEe2c44xyGURwB0axX2fBDu1dqHrHAc1hmNT8ITkw=="],
 
     "husky": ["husky@9.1.7", "https://registry.npmmirror.com/husky/-/husky-9.1.7.tgz", { "bin": { "husky": "bin.js" } }, "sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA=="],
 
