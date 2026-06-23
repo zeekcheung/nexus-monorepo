@@ -84,3 +84,13 @@ export function applyDefaults<T extends Record<string, any>>(target: T, defaults
 
   return result;
 }
+
+/**
+ * Get a random integer between min and max (inclusive)
+ * @param min The minimum value
+ * @param max The maximum value
+ * @returns A random integer between min and max
+ */
+export function getRandomInt(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
